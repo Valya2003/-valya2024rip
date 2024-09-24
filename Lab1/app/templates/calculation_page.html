@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+
+        <h3  class="text-center">Черновой рассчет</h3>
+
+        <span>Статус: {{ calculation.status }}</span>
+        <span>Дата создания: {{ calculation.date_created }}</span>
+        <span>Напряжение: {{ calculation.power }}V</span>
+
+        <h4 class="text-center">Резисторы</h4>
+
+        <div class="cards-wrapper">
+
+            {% for resistor in calculation.resistors %}
+
+                {% include "resistor_card.html" %}
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+{% endblock content %}

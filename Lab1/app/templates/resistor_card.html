@@ -1,0 +1,35 @@
+{% load static %}
+
+<div class="card">
+
+    <img src="{{ resistor.image }}" class="resistor-preview" alt=""/>
+
+    <div class="card-body" >
+
+        <div class="card-info">
+
+            <h5 class="card-title">{{ resistor.name }}</h5>
+
+            <p class="card-text">{{ resistor.description|truncatechars:85 }}</p>
+
+        </div>
+
+        {% if "http://localhost:8000/calculations" in request.build_absolute_uri %}
+            <div class="form-group">
+                <label class="form-label">Количество</label>
+                <input placeholder="Количество" disabled="" type="number" class="form-control" value={{ resistor.count }}>
+            </div>
+        {% endif %}
+
+        <div class="card-btns">
+
+            <a href="/resistors/{{ resistor.id }}" class="btn btn-primary mt5">
+                Открыть
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
